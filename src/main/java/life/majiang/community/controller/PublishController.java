@@ -73,15 +73,14 @@ public class PublishController {
             Question question = new Question();
             question.setTitle(title);
             question.setDescription(description);
+            question.setCreator(user.getId());
             question.setTag(tag);
             question.setGmtCreate(System.currentTimeMillis());
             question.setGmtModified(question.getGmtCreate());
             questionMapper.create(question);
             model.addAttribute("success", "发布成功");
-            return "index";
+            return "redirect:";
         }
-
-
         return "publish";
     }
 }
